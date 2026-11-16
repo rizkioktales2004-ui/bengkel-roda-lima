@@ -1,0 +1,492 @@
+/* Dimuat SETELAH Bootstrap 5.3. Token milik sendiri menimpa variabel --bs-*. */
+:root {
+  --warna-bg: #eef1ec;
+  --warna-permukaan: #fff;
+  --warna-teks: #14211f;
+  --warna-redup: #4a5859;
+  --warna-merek: #0f3d4c;
+  --warna-aksen: #b4430f;
+  --warna-aksen-teks: #fff;
+  --warna-garis: #c9d1cc;
+  --warna-header: #0f3d4c;
+  --warna-link: #0f3d4c;
+  --font-judul: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-isi: "Barlow", system-ui, sans-serif;
+  --ruang: 1rem;
+  --ruang-besar: 3rem;
+  --radius: 0.5rem;
+  --radius-kecil: 0.25rem;
+  --bs-primary: var(--warna-aksen);
+  --bs-body-bg: var(--warna-bg);
+  --bs-body-color: var(--warna-teks);
+  --bs-body-font-family: var(--font-isi);
+  --bs-link-color: var(--warna-link);
+  --bs-border-color: var(--warna-garis);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --warna-bg: #11191c;
+    --warna-permukaan: #1a2529;
+    --warna-teks: #e8edea;
+    --warna-redup: #a9b6b8;
+    --warna-merek: #7ccfe0;
+    --warna-aksen: #ff9a62;
+    --warna-aksen-teks: #11191c;
+    --warna-garis: #2f3e43;
+    --warna-header: #0a2229;
+    --warna-link: #7ccfe0;
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-padding-top: 5rem;
+}
+body {
+  background: var(--warna-bg);
+  color: var(--warna-teks);
+  font-family: var(--font-isi);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-judul);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--warna-merek);
+}
+h1 {
+  font-size: clamp(2.25rem, 6vw+1rem, 4rem);
+}
+h2 {
+  font-size: clamp(1.75rem, 3vw+1rem, 2.5rem);
+  margin-bottom: var(--ruang);
+}
+h3 {
+  font-size: 1.5rem;
+}
+a {
+  color: var(--warna-link);
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+:focus-visible {
+  outline: 0.1875rem solid var(--warna-aksen);
+  outline-offset: 0.2rem;
+}
+.lewati {
+  position: absolute;
+  left: var(--ruang);
+  top: -4rem;
+  padding: 0.75rem 1rem;
+  background: var(--warna-aksen);
+  color: var(--warna-aksen-teks);
+  z-index: 2000;
+  border-radius: var(--radius-kecil);
+}
+.lewati:focus {
+  top: var(--ruang);
+}
+
+/* Header + navbar (Flexbox dari Bootstrap + gap sendiri) */
+.situs-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background: var(--warna-header);
+}
+.situs-header .navbar-brand {
+  font-family: var(--font-judul);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+}
+.situs-header .nav-link {
+  color: #fff;
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  padding-inline: 1rem;
+  border-bottom: 0.1875rem solid transparent;
+}
+.situs-header .nav-link[aria-current="page"] {
+  border-bottom-color: #ff9a62;
+  font-weight: 600;
+}
+.situs-header .navbar-toggler {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+
+/* Bagian */
+.blok {
+  padding-block: var(--ruang-besar);
+}
+.blok-alt {
+  background: var(--warna-permukaan);
+  border-block: 1px solid var(--warna-garis);
+}
+.lead {
+  max-width: 60ch;
+  color: var(--warna-redup);
+}
+
+/* Hero: Grid dengan grid-template-areas */
+.hero {
+  padding-block: var(--ruang-besar);
+  background: var(--warna-bg);
+}
+.hero-grid {
+  display: grid;
+  gap: var(--ruang-besar) var(--ruang);
+  grid-template-areas: "teks" "gambar";
+}
+.hero-teks {
+  grid-area: teks;
+  align-self: center;
+}
+.hero-gambar {
+  grid-area: gambar;
+  position: relative;
+}
+.hero-gambar img {
+  border-radius: var(--radius);
+  width: 100%;
+}
+.aksi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ruang);
+}
+@media (min-width: 48em) {
+  .hero-grid {
+    grid-template-columns: 1.1fr 1fr;
+    grid-template-areas: "teks gambar";
+  }
+}
+
+/* Tombol & lencana: kustomisasi Bootstrap */
+.btn {
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-kecil);
+}
+.btn-primary {
+  --bs-btn-bg: var(--warna-aksen);
+  --bs-btn-border-color: var(--warna-aksen);
+  --bs-btn-color: var(--warna-aksen-teks);
+  --bs-btn-hover-bg: var(--warna-merek);
+  --bs-btn-hover-border-color: var(--warna-merek);
+  --bs-btn-hover-color: var(--warna-bg);
+  --bs-btn-active-bg: var(--warna-merek);
+  --bs-btn-active-border-color: var(--warna-merek);
+  --bs-btn-active-color: var(--warna-bg);
+}
+.btn-outline-primary {
+  --bs-btn-color: var(--warna-merek);
+  --bs-btn-border-color: var(--warna-merek);
+  --bs-btn-hover-bg: var(--warna-merek);
+  --bs-btn-hover-color: var(--warna-bg);
+  --bs-btn-hover-border-color: var(--warna-merek);
+  --bs-btn-active-bg: var(--warna-merek);
+  --bs-btn-active-color: var(--warna-bg);
+}
+.lencana {
+  background: var(--warna-aksen);
+  color: var(--warna-aksen-teks);
+  font-size: 0.875rem;
+  padding: 0.4rem 0.7rem;
+}
+.hero-gambar .lencana,
+.kartu .lencana {
+  position: absolute;
+  top: var(--ruang);
+  right: var(--ruang);
+}
+
+/* Kartu: Flexbox di dalam kartu */
+.kartu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background: var(--warna-permukaan);
+  color: var(--warna-teks);
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--radius);
+}
+.kartu::before {
+  content: "";
+  align-self: stretch;
+  height: 0.25rem;
+  background: var(--warna-aksen);
+  border-radius: var(--radius-kecil);
+  margin-bottom: 0.25rem;
+}
+.kartu p {
+  margin: 0;
+}
+.galeri-kartu {
+  display: grid;
+  gap: var(--ruang);
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+.galeri {
+  display: grid;
+  gap: var(--ruang);
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  padding: 0;
+}
+.foto {
+  margin: 0;
+}
+.foto img {
+  border-radius: var(--radius);
+  width: 100%;
+}
+figcaption {
+  font-size: 0.9375rem;
+  color: var(--warna-redup);
+  padding-top: 0.4rem;
+}
+
+/* Statistik & kutipan */
+.statistik {
+  display: grid;
+  gap: var(--ruang);
+  grid-template-columns: 1fr;
+  margin: 0;
+}
+.statistik div {
+  border-left: 0.25rem solid var(--warna-aksen);
+  padding-left: var(--ruang);
+}
+.statistik dt {
+  color: var(--warna-redup);
+  font-weight: 400;
+}
+.statistik dd {
+  font-family: var(--font-judul);
+  font-size: clamp(2rem, 4vw+1rem, 3rem);
+  font-weight: 700;
+  color: var(--warna-merek);
+  margin: 0;
+}
+@media (min-width: 48em) {
+  .statistik {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.kutipan {
+  margin: 0;
+  padding: 1.25rem;
+  background: var(--warna-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--warna-garis);
+  height: 100%;
+}
+.kutipan footer {
+  color: var(--warna-redup);
+  font-size: 0.9375rem;
+}
+.cta {
+  text-align: left;
+  max-width: 48rem;
+}
+
+/* Tabel */
+.tabel-gulir {
+  overflow-x: auto;
+}
+.tabel {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--warna-bg);
+}
+.tabel caption {
+  caption-side: top;
+  text-align: left;
+  padding: 0.5rem 0;
+  color: var(--warna-redup);
+}
+.tabel th,
+.tabel td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--warna-garis);
+  text-align: left;
+}
+.tabel thead th {
+  background: var(--warna-header);
+  color: #fff;
+}
+.tabel tbody tr:nth-child(even) {
+  background: var(--warna-permukaan);
+}
+.tabel .angka {
+  white-space: nowrap;
+  font-weight: 600;
+}
+.catatan {
+  margin-top: var(--ruang-besar);
+  padding: 1rem;
+  border-left: 0.25rem solid var(--warna-aksen);
+  background: var(--warna-bg);
+}
+
+/* Booking: Grid dengan grid-template-areas, 1 kolom -> 2 kolom */
+.booking-grid {
+  display: grid;
+  gap: var(--ruang-besar);
+  grid-template-areas: "form" "info";
+}
+.booking-form {
+  grid-area: form;
+  max-width: 40rem;
+}
+.booking-info {
+  grid-area: info;
+  align-self: start;
+  padding: 1.25rem;
+  background: var(--warna-permukaan);
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--radius);
+}
+@media (min-width: 64em) {
+  .booking-grid {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "form info";
+  }
+  .booking-info {
+    position: sticky;
+    top: 6rem;
+  }
+}
+.form-control,
+.form-select {
+  min-height: 2.75rem;
+  background-color: var(--warna-permukaan);
+  color: var(--warna-teks);
+  border-color: var(--warna-redup);
+}
+.form-check-input {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.1rem;
+}
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.75rem;
+  padding-left: 0;
+}
+.form-check .form-check-input {
+  float: none;
+  margin-left: 0;
+}
+fieldset {
+  border: 0;
+  padding: 0;
+}
+legend {
+  font-size: 1rem;
+  font-family: var(--font-isi);
+  font-weight: 600;
+  color: var(--warna-teks);
+}
+.bantuan {
+  font-size: 0.9375rem;
+  color: var(--warna-redup);
+  margin-top: 0.25rem;
+}
+.form-control:user-invalid,
+.form-select:user-invalid {
+  border-color: var(--warna-aksen);
+  border-width: 0.125rem;
+  background-color: var(--warna-permukaan);
+}
+.form-control:user-invalid + .bantuan {
+  color: var(--warna-aksen);
+  font-weight: 600;
+}
+
+/* Tentang */
+.tentang-grid {
+  display: grid;
+  gap: var(--ruang-besar);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 48em) {
+  .tentang-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+.peta {
+  width: 100%;
+  height: 20rem;
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--radius);
+}
+.faq {
+  border: 1px solid var(--warna-garis);
+  border-radius: var(--radius);
+  background: var(--warna-permukaan);
+  margin-bottom: 0.75rem;
+}
+.faq summary {
+  padding: 0.75rem 1rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+.faq p {
+  padding: 0 1rem 1rem;
+  margin: 0;
+}
+.tips {
+  margin-bottom: var(--ruang);
+  max-width: 60ch;
+}
+
+/* Footer */
+.situs-footer {
+  background: var(--warna-header);
+  color: #fff;
+  padding-block: 1.5rem;
+}
+.situs-footer a {
+  color: #fff;
+}
+.footer-isi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--ruang);
+}
+
+/* Gerak dikurangi */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none;
+    animation: none;
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Booking servis | Roda Lima Motor</title>
+    <meta
+      name="description"
+      content="Form booking servis motor Roda Lima Motor: pilih tanggal, jenis motor, dan layanan yang dibutuhkan."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap 5.3 (sumber: getbootstrap.com/docs/5.3) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <a class="lewati" href="#konten">Lewati ke konten utama</a>
+    <header class="situs-header">
+      <nav
+        class="navbar navbar-expand-md navbar-dark"
+        aria-label="Navigasi utama"
+      >
+        <div class="container">
+          <a class="navbar-brand" href="index.html">Roda Lima Motor</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"
+            aria-controls="menu"
+            aria-expanded="false"
+            aria-label="Buka menu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Beranda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="layanan.html">Layanan</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="booking.html" aria-current="page"
+                  >Booking</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="galeri.html">Galeri</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tentang.html">Tentang</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="konten" tabindex="-1">
+      <section class="blok" aria-labelledby="judul-booking">
+        <div class="container booking-grid">
+          <div class="booking-form">
+            <h1 id="judul-booking">Booking servis</h1>
+            <p>Kolom bertanda * wajib diisi.</p>
+            <form action="terima-kasih.html" method="get">
+              <div class="mb-3">
+                <label class="form-label" for="nama">Nama lengkap *</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="nama"
+                  name="nama"
+                  required
+                  minlength="3"
+                  autocomplete="name"
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="hp">Nomor WhatsApp *</label>
+                <input
+                  class="form-control"
+                  type="tel"
+                  id="hp"
+                  name="hp"
+                  required
+                  pattern="08[0-9]{8,12}"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  aria-describedby="bantu-hp"
+                />
+                <div class="bantuan" id="bantu-hp">
+                  Contoh: 081234567890 (diawali 08, 10&ndash;14 digit).
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input
+                  class="form-control"
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="email"
+                  inputmode="email"
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="motor">Jenis motor *</label>
+                <select class="form-select" id="motor" name="motor" required>
+                  <option value="">Pilih jenis motor</option>
+                  <option>Matic</option>
+                  <option>Bebek</option>
+                  <option>Sport</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="plat">Nomor polisi *</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="plat"
+                  name="plat"
+                  required
+                  pattern="[A-Za-z]{1,2} ?[0-9]{1,4} ?[A-Za-z]{0,3}"
+                  autocomplete="off"
+                  aria-describedby="bantu-plat"
+                />
+                <div class="bantuan" id="bantu-plat">Contoh: L 1234 AB</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="tahun">Tahun motor *</label>
+                <input
+                  class="form-control"
+                  type="number"
+                  id="tahun"
+                  name="tahun"
+                  required
+                  min="2000"
+                  max="2026"
+                  inputmode="numeric"
+                  autocomplete="off"
+                  aria-describedby="bantu-tahun"
+                />
+                <div class="bantuan" id="bantu-tahun">
+                  Antara 2000 dan 2026.
+                </div>
+              </div>
+              <fieldset class="mb-3">
+                <legend class="form-label">Layanan *</legend>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="layanan"
+                    id="l1"
+                    value="ringan"
+                    required
+                  /><label class="form-check-label" for="l1"
+                    >Servis ringan</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="layanan"
+                    id="l2"
+                    value="rem"
+                  /><label class="form-check-label" for="l2">Rem</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="layanan"
+                    id="l3"
+                    value="tuneup"
+                  /><label class="form-check-label" for="l3">Tune up</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="layanan"
+                    id="l4"
+                    value="lain"
+                  /><label class="form-check-label" for="l4"
+                    >Lainnya (jelaskan di keluhan)</label
+                  >
+                </div>
+              </fieldset>
+              <div class="mb-3">
+                <label class="form-label" for="tanggal">Tanggal servis *</label>
+                <input
+                  class="form-control"
+                  type="date"
+                  id="tanggal"
+                  name="tanggal"
+                  required
+                  min="2026-11-16"
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="keluhan">Keluhan</label>
+                <textarea
+                  class="form-control"
+                  id="keluhan"
+                  name="keluhan"
+                  rows="4"
+                  maxlength="300"
+                  aria-describedby="bantu-keluhan"
+                ></textarea>
+                <div class="bantuan" id="bantu-keluhan">
+                  Maksimal 300 karakter.
+                </div>
+              </div>
+              <div class="form-check mb-4">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="jemput"
+                  name="jemput"
+                  value="ya"
+                /><label class="form-check-label" for="jemput"
+                  >Saya mau motor dijemput (radius 5 km)</label
+                >
+              </div>
+              <button class="btn btn-primary btn-lg" type="submit">
+                Kirim booking
+              </button>
+            </form>
+          </div>
+          <aside class="booking-info" aria-labelledby="judul-jam">
+            <h2 id="judul-jam">Jam buka</h2>
+            <ul class="list-unstyled">
+              <li>Senin&ndash;Sabtu: 08.00&ndash;17.00</li>
+              <li>Minggu dan tanggal merah: tutup</li>
+            </ul>
+            <p>
+              Booking dikonfirmasi lewat WhatsApp maksimal 2 jam di jam kerja.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="situs-footer">
+      <div class="container footer-isi">
+        <p class="mb-0">
+          &copy; 2026 Roda Lima Motor (usaha fiktif untuk tugas UTS PAW).
+        </p>
+        <address class="mb-0">
+          Jl. Ketintang Baru 12, Surabaya &middot;
+          <a href="tel:+62318001234">(031) 800-1234</a>
+        </address>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
